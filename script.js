@@ -13,8 +13,8 @@
 document.getElementById('info-icon').addEventListener('mouseenter', function() {
   document.getElementById('game-description').classList.remove('hidden');
   document.getElementById('game-description').classList.add('visible');
-  document.getElementById('game-board-container').classList.remove('visible');
-  document.getElementById('game-board-container').classList.add('hidden');
+  document.getElementById('game-container').classList.remove('visible');
+  document.getElementById('game-container').classList.add('hidden');
 });
 
 document.getElementById('info-icon').addEventListener('mouseleave', function() {
