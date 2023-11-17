@@ -140,3 +140,18 @@ h1 {
       font-size: 3rem; /* Smaller score font size */
     }
   }
+
+#game-description {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #333;
+  padding: 10px;
+  position: absolute;
+  top: 120px; /* Adjust as needed */
+  width: 300px; /* Adjust as needed */
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
