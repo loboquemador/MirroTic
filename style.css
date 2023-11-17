@@ -154,4 +154,6 @@ h1 {
 
 .hidden {
   display: none;
+}.visible {
+  display: block;
 }
