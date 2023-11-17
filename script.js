@@ -11,7 +11,7 @@
   let scoreO = 0;
 
 document.getElementById('info-icon').addEventListener('mouseenter', function() {
-  document.getElementById('game-description').style.display = 'block';
+  document.getElementById('game-description').style.display = 'flex';
 });
 
 document.getElementById('info-icon').addEventListener('mouseleave', function() {
