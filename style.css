@@ -146,16 +146,19 @@ h1 {
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
   color: #fff;
   border: 1px solid #333;
-  padding: 10px;
+  padding: 20px; /* Increased padding for better readability */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   display: none;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: center; /* Align items vertically */
+  align-items: center; /* Align items horizontally */
+  text-align: center; /* Center text horizontally */
+  flex-direction: column; /* Stack flex items vertically */
+  overflow-y: auto; /* Add scroll for overflow */
+  z-index: 10; /* Ensure it's above other elements */
 }
 
 .hidden {
