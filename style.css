@@ -12,7 +12,7 @@ body {
 h1 {
   font-size: 5rem;
   margin-bottom: 30px;
-  animation: colorChange 10s infinite alternate;
+  /*animation: colorChange 10s infinite alternate; */
   text-align: center; /* Center the h1 text horizontally */
 }
 
