@@ -10,6 +10,14 @@
   let scoreX = 0;
   let scoreO = 0;
 
+document.getElementById('info-icon').addEventListener('mouseenter', function() {
+  document.getElementById('game-description').style.display = 'block';
+});
+
+document.getElementById('info-icon').addEventListener('mouseleave', function() {
+  document.getElementById('game-description').style.display = 'none';
+});
+
   const gridCells = [];
 
   // Create the game board HTML elements
