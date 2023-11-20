@@ -48,11 +48,11 @@ document.getElementById('info-icon').addEventListener('mouseleave', function() {
   // Example: Determine random grid pairs
   const allGridPairs = [['AC', 'BD'], ['AB', 'CD'], ['AD', 'BC']];
   const connectedGrids = getRandomConnectedGrids(allGridPairs);
-  console.log('Connected Grids:', connectedGrids);
+  // console.log('Connected Grids:', connectedGrids);
 
   // Example mirroring ruleset
   const mirroringRuleset = generateMirroringRuleset(connectedGrids);
-  console.log('Mirroring Ruleset:', mirroringRuleset);
+  // console.log('Mirroring Ruleset:', mirroringRuleset);
 
   // Track current player (X or O)
   let currentPlayer = 'X';
@@ -176,7 +176,7 @@ function combineGrids() {
       }
     }
   }
-  //console.log(combinedGrid)
+  // console.log(combinedGrid)
 
   return combinedGrid;
 }
@@ -200,7 +200,7 @@ function applyMirroring(gridId, row, col) {
       const targetGrid = (gridId === grid1) ? grid2 : grid1;
       const mirroredRowCol = getMirroredRowCol(row, col, mirroringRuleset[connectedGrid]);
       mirrorCell(mirroredRowCol.row, mirroredRowCol.col, targetGrid, row, col, gridId);
-	  console.log(`${currentPlayer} placed a token in ${gridId}${row}${col}, mirrored in ${targetGrid}${mirroredRowCol.row}${mirroredRowCol.col}`);
+	  // console.log(`${currentPlayer} placed a token in ${gridId}${row}${col}, mirrored in ${targetGrid}${mirroredRowCol.row}${mirroredRowCol.col}`);
     }
   }
 }
