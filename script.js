@@ -61,9 +61,6 @@ document.getElementById('info-icon').addEventListener('mouseleave', function() {
   function handleCellClick(gridId, row, col) {
     // Check if the cell is empty
     if (!grids[gridId][row][col]) {
-	
-	  // Remove existing X or O classes
-	  //cell.classList.remove('X', 'O');
       // Place the token in the selected cell
       grids[gridId][row][col] = currentPlayer;
       gridCells.find(cell => cell.dataset.grid === gridId && cell.dataset.row == row && cell.dataset.col == col).textContent = currentPlayer;
@@ -73,24 +70,25 @@ document.getElementById('info-icon').addEventListener('mouseleave', function() {
 
 	  // Apply mirroring rules
       applyMirroring(gridId, row, col);
-	  
-	  
- 
 	// Calculate and update score
 	calculateAndUpdateScore();
     
       
 	currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-	// Update turn indicator
-	const turnIndicator = document.getElementById('turn-indicator');
-	turnIndicator.textContent = currentPlayer;
-	turnIndicator.classList.remove('X', 'O');
-	turnIndicator.classList.add(currentPlayer);
-  
+	updateTurnIndicator();
+
+	if (currentPlayer === 'O') {
+		setTimeout(llmmove, 500); // AI moves after a short delay
 
     }
   }
 
+function updateTurnIndicator() {
+    const turnIndicator = document.getElementById('turn-indicator');
+    turnIndicator.textContent = currentPlayer;
+    turnIndicator.classList.remove('X', 'O');
+    turnIndicator.classList.add(currentPlayer);
+}	  
 // Function to calculate and update score
 function calculateAndUpdateScore() {
   const combinedGrid = combineGrids();
@@ -295,4 +293,26 @@ function generateMirroringRuleset(connectedGrids) {
   }
 
   return ruleset;
+}
+
+// Function for LLM Move
+function llmmove() {
+    let bestMove = getBestMove();
+    if (bestMove) {
+        handleCellClick(bestMove.grid, bestMove.row, bestMove.col);
+    }
+}
+
+// Simple AI strategy: chooses the first available move
+function getBestMove() {
+    for (const gridId in grids) {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (!grids[gridId][i][j]) {
+                    return { grid: gridId, row: i, col: j };
+                }
+            }
+        }
+    }
+    return null; // No moves left
 }
